@@ -1,29 +1,28 @@
 let correctInput = false;
-let nf = 0;
+let numF = 0;
 while(!correctInput){
-  nf = Number(prompt('Insert your number (integer only):'));
-  if (!isNaN(nf) && nf !== 0){
+  numF = Number(prompt('Insert your number (integer only):'));
+  if (!isNaN(numF) && numF !== 0){
     correctInput = true;
   }
 }
 
-const b = numberFibonacchi(nf);
-const c = numberFibonacchi2(nf);
-const ar = tableFibonacchi(nf);
-showValue(nf,b,c,ar);
+const b = numberFibonacchi(numF);
+const c = numberFibonacchi2(numF);
+const ar = arrFibonacchi(numF);
+showValue(numF,b,c,ar);
 
-
-function numberFibonacchi(nf){
-    if (nf <= 2) return 1;      
-    return numberFibonacchi(nf-2) + numberFibonacchi(nf-1);
+function numberFibonacchi(numF){
+    if (numF <= 2) return 1;      
+    return numberFibonacchi(numF-2) + numberFibonacchi(numF-1);
 }
 
-function numberFibonacchi2(nf){
-  if (nf <= 2) return 1;
+function numberFibonacchi2(numF){
+  if (numF <= 2) return 1;
   let n1 = 1;
   let n2 = 1;
   let sn = 0;
-  for (let i = 2; i < nf; i++){
+  for (let i = 2; i < numF; i++){
     sn = n1 + n2;
     n1 = n2;
     n2 = sn;
@@ -31,14 +30,13 @@ function numberFibonacchi2(nf){
   return sn;
 }
 
-function tableFibonacchi(nf){
-  let fin = 70;
+function arrFibonacchi(numF){
+  let columns = 70;
   let n1 = 1;
   let n2 = 1;
   let sn = 0;
   let af = [];
-  //if (nf > 70){fin = nf;} else {fin = 70;}
-  for (let i = 1; i <= fin; i++){
+  for (let i = 1; i <= columns; i++){
     if (i===1 || i===2){
       sn = 1;
     }else{
@@ -55,7 +53,7 @@ function tableFibonacchi(nf){
 Functions responsible for displaying content
 ------------------------------------------*/
 function showValue(a,b,c,ar){
-  document.write('<h3>Your Fibonacchi Number is '+ a +'</h3>');
+  document.write('<h4>Your Fibonacchi Number is '+ a +'</h4>');
   document.write('<div class="grid">');
   document.write('<div class="cell1">');
   document.write('<h1>' + b + '</h1>');
@@ -63,7 +61,7 @@ function showValue(a,b,c,ar){
   document.write('<div class="cell2">');
   document.write('<h1>' + c + '</h1>');
   document.write('</div>');
-  showTableFibonacchi(tableFibonacchi(nf));
+  showTableFibonacchi(arrFibonacchi(numF));
   document.write('</div');
 }
 
@@ -73,7 +71,7 @@ function showTableFibonacchi(anf){
     if (i ===  1 || i === 11 || i === 21 || i === 31 || i === 41 || i === 51 || i === 61 ){
       document.write('<tr>');
     }
-    if (i === nf){
+    if (i === numF){
       document.write('<td class="nf">');  
     }else{
       document.write('<td>');  
