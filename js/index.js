@@ -7,10 +7,10 @@ while(!correctInput){
   }
 }
 
-const b = numberFibonacchi(numF);
-const c = numberFibonacchi2(numF);
-const ar = arrFibonacchi(numF);
-showValue(numF,b,c,ar);
+const numF1 = numberFibonacchi(numF);
+const numF2 = numberFibonacchi2(numF);
+const arrF  = arrFibonacchi(numF);
+showValue(numF, numF1, numF2, arrF);
 
 function numberFibonacchi(numF){
     if (numF <= 2) return 1;      
@@ -49,9 +49,11 @@ function arrFibonacchi(numF){
   return af;
 } 
 
-/*------------------------------------------
-Functions responsible for displaying content
-------------------------------------------*/
+
+
+
+
+
 function showValue(a,b,c,ar){
   document.write('<h4>Your Fibonacchi Number is '+ a +'</h4>');
   document.write('<div class="grid">');
